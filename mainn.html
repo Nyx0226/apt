@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 💖</title>
+
+<!-- Rock Salt font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    height:100vh;
+    width:100vw;
+    overflow:hidden;
+    background:#ff2d8d;
+    position:relative;
+    font-family: 'Rock Salt', cursive;
+}
+
+/* 🎂 Title */
+.title{
+    font-size:55px;
+    letter-spacing:3px;
+    color:white;
+    text-shadow:0 0 15px white,0 0 30px #ff9ccf,0 0 50px #ff69b4;
+    text-align:center;
+    position:absolute;
+    top:30px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:10;
+}
+
+/* ⚡ Heart thunders */
+.bolt{
+    position:absolute;
+    width:20px;
+    height:30px;
+    animation:swayBolt ease-in-out infinite;
+    transform-origin:center center;
+}
+@keyframes swayBolt{
+    0%,100%{transform:translateX(0) rotate(-8deg);}
+    50%{transform:translateX(8px) rotate(8deg);}
+}
+
+.face{
+    width:400px;
+    z-index:2;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+
+/* 🍰 Cake */
+.cake{
+    width:200px;
+    z-index:2;
+    position:absolute;
+    top:calc(50% + 120px);
+    left:50%;
+    transform:translateX(-50%);
+}
+
+/* 🎉 Party poppers */
+.popper{
+    position:absolute;
+    font-size:40px;
+    z-index:5;
+    animation:popperBounce 2s ease-in-out infinite;
+}
+@keyframes popperBounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+/* 🎈 Floating confetti emojis */
+.confetti{
+    position:absolute;
+    font-size:24px;
+    z-index:1;
+    animation:fall linear infinite;
+}
+@keyframes fall{
+    0% {transform: translateY(-50px) rotate(0deg);}
+    100% {transform: translateY(110vh) rotate(360deg);}
+}
+
+/* 🎉 Decorations layout */
+.decor{
+    position:absolute;
+    z-index:3;
+    transform-origin:center center;
+}
+.decor img, .decor span{
+    display:block;
+    width:100%;
+    height:auto;
+}
+@keyframes sway{0%,100%{transform:translateX(0);}50%{transform:translateX(15px);}}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes floatAnim{0%{transform:translateY(0);}100%{transform:translateY(20px);}}
+
+
+
+#playButton {
+    position: fixed;           
+    top: 0;
+    left: 0;
+    width: 100vw;              
+    height: 100vh;            
+    background: white;     
+    color: #ff2d8d;       
+    font-size: 80px;           
+    display: flex;             
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 50;              
+    box-shadow: 0 0 20px white;
+    border-radius: 0;          
+    text-shadow: 
+        0 0 40px #ff69b4,   
+        0 0 60px #f470b2;
+    box-shadow: 0 0 20px white;
+}
+
+
+/* Extra decorations */
+#topLeft{
+    position:absolute;
+    top:10px;
+    left:10px;
+    width:250px;
+    z-index:15;
+}
+#bottomRight{
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    width:100px;
+    z-index:15;
+}
+
+
+</style>
+</head>
+<body>
+
+<h1 class="title">HAPPY BIRTHDAY</h1>
+
+<!-- Centerpiece -->
+<img src="reedit.png" class="face">
+<img src="cakeee.png" class="cake">
+
+<!-- Game Start Overlay -->
+<div id="gameStart" style="
+    position:fixed;
+    top:0; left:0;
+    width:100vw; height:100vh;
+    background: rgba(255,45,141,0.95);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: 'Rock Salt', cursive;
+    font-size:70px;
+    color:white;
+    text-shadow:0 0 15px white,0 0 30px #ff9ccf,0 0 50px #ff69b4;
+    z-index:100;
+    opacity:0;
+    visibility:hidden;
+    transition: opacity 0.5s;
+">Find the Hidden Messages!<br>
+Game Start-----></div>
+
+<!-- Party popper emojis -->
+<div class="popper" style="top:10px; left:10px;">🎉</div>
+<div class="popper" style="top:10px; right:10px;">🎉</div>
+<div class="popper" style="bottom:10px; left:10px;">🎉</div>
+<div class="popper" style="bottom:10px; right:10px;">🎉</div>
+
+<!-- Decorations (balloons, hats, emojis) -->
+<div class="decor" data-x="10" data-y="20" data-scale="0.8" data-rotate="10" data-animation="sway">
+  <img src="balloon.png" />
+</div>
+<div class="decor" data-x="80" data-y="25" data-scale="0.9" data-rotate="-15" data-animation="floatAnim">
+  <img src="discoball.png" />
+</div>
+<div class="decor" data-x="50" data-y="5" data-scale="1" data-rotate="0" data-animation="bounce">
+  🎈
+</div>
+<div class="decor" data-x="70" data-y="60" data-scale="1" data-rotate="0" data-animation="sway">
+  🎉
+</div>
+
+<!-- Extra decorations -->
+<img src="tune.png" id="topLeft">
+<img src="kissy.png" id="bottomRight">
+
+<!-- 19 Music Button -->
+<div id="playButton">19</div>
+
+<!-- Music -->
+<audio id="bgMusic" loop>
+    <source src="apt.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Pop-up container -->
+<div id="popup" style="
+    position:fixed;
+    top:0; left:0; width:100vw; height:100vh;
+    background: rgba(255,45,141,0.9);
+    display:flex; justify-content:center; align-items:center;
+    z-index:50;
+    visibility:hidden;
+    opacity:0;
+    transition:opacity 0.3s;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+">
+    <div id="popupMessage" style="
+        font-family: 'Rock Salt', cursive;
+        font-size:40px;
+        color:white;
+        text-shadow: 0 0 10px white, 0 0 20px #ff9ccf;
+        margin-bottom:40px;
+    ">Your message here</div>
+    <div id="closePopup" style="
+        font-size:60px;
+        cursor:pointer;
+        user-select:none;
+        text-shadow: 0 0 10px white, 0 0 20px #ff69b4;
+    ">⚡</div>
+</div>
+
+<script>
+// Play music on button click
+const music = document.getElementById("bgMusic");
+const playBtn = document.getElementById("playButton");
+
+playBtn.addEventListener("click", ()=>{
+    music.play().catch(()=>{console.log("Music blocked");});
+    playBtn.style.display = "none"; // hide button after click
+});
+
+// ⚡ Black thunder SVG
+const boltSVG = `
+<svg viewBox="0 0 60 100" fill="black">
+<polygon points="30,0 10,55 30,55 20,100 50,40 30,40"/>
+</svg>`;
+
+// Heart formula
+function heartXY(t){
+    let x = 16*Math.pow(Math.sin(t),3);
+    let y = 13*Math.cos(t) - 5*Math.cos(2*t) - 2*Math.cos(3*t) - Math.cos(4*t);
+    return [x,y];
+}
+
+const boltsCount = 60;
+const bolts = [];
+for(let i=0;i<boltsCount;i++){
+    const t = (i/boltsCount)*2*Math.PI;
+    const [hx,hy] = heartXY(t);
+
+    const bolt=document.createElement("div");
+    bolt.className="bolt";
+    bolt.innerHTML = boltSVG;
+    bolt.style.left = `calc(50vw + ${hx*15}px)`;
+    bolt.style.top  = `calc(50vh - ${hy*15}px)`;
+    bolt.style.transform = `scale(${0.5+Math.random()*0.5})`;
+    bolt.style.animationDuration = (2+Math.random()*2)+"s";
+
+    document.body.appendChild(bolt);
+    bolts.push({el:bolt, x:hx, y:hy});
+}
+
+// Heart pulse animation
+let t=0;
+const pulseSpeed = 0.05;
+function animateHeart(){
+    t += pulseSpeed;
+    const scale = 1 + 0.15 * Math.sin(t);
+    bolts.forEach(b=>{
+        const s = 15*scale;
+        b.el.style.left = `calc(50vw + ${b.x*s}px)`;
+        b.el.style.top  = `calc(50vh - ${b.y*s}px)`;
+    });
+    requestAnimationFrame(animateHeart);
+}
+animateHeart();
+
+// Confetti emojis
+const confettiEmojis = ['🎈','✨','🎊','💖'];
+for(let i=0;i<40;i++){
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.innerText = confettiEmojis[Math.floor(Math.random()*confettiEmojis.length)];
+    confetti.style.left = Math.random()*100+"vw";
+    confetti.style.animationDuration = (4+Math.random()*6)+"s";
+    confetti.style.fontSize = (14+Math.random()*20)+"px";
+    document.body.appendChild(confetti);
+}
+
+// Place modular decorations
+const decors = document.querySelectorAll('.decor');
+decors.forEach(d=>{
+    const x = d.getAttribute('data-x') || 50;
+    const y = d.getAttribute('data-y') || 50;
+    const scale = d.getAttribute('data-scale') || 1;
+    const rotate = d.getAttribute('data-rotate') || 0;
+    const anim = d.getAttribute('data-animation') || '';
+
+    d.style.left = x + "vw";
+    d.style.top = y + "vh";
+    d.style.transform = `scale(${scale}) rotate(${rotate}deg)`;
+
+    if(anim){
+        d.style.animation = `${anim} ${2 + Math.random()*2}s ease-in-out infinite`;
+    }
+});
+
+// Select the images
+const clickableItems = [
+    {el: document.querySelector('.cake'), msg: 'Make a wish for your divalicious day! -*'},
+    {el: document.getElementById('bottomRight'), msg: 'Sealing my love for you 030'},
+    {el: document.getElementById('topLeft'), msg: 'Music is always better when you vibe with me :)'},
+    {el: document.querySelector('.decor img[src*="balloon.png"]'), msg: 'Let your troubles fly away;>'},
+    {el: document.querySelector('.decor img[src*="discoball.png"]'), msg:'Dance like you own that stage! >.<'},
+    {el: document.querySelector('.face'), msg:'Love you cutie <3'}
+    
+];
+
+const popup = document.getElementById('popup');
+const popupMessage = document.getElementById('popupMessage');
+const closeBtn = document.getElementById('closePopup');
+
+// Add click events
+clickableItems.forEach(item=>{
+    if(item.el){ // make sure element exists
+        item.el.style.cursor = 'pointer';
+        item.el.addEventListener('click', ()=>{
+            popupMessage.textContent = item.msg; // set custom message
+            popup.style.visibility = 'visible';
+            popup.style.opacity = 1;
+        });
+ }
+});
+
+
+// Close popup on thunder click
+closeBtn.addEventListener('click', ()=>{
+    popup.style.opacity = 0;
+    setTimeout(()=>popup.style.visibility = 'hidden', 300);
+});
+
+// Extend your existing play button click event
+playBtn.addEventListener("click", ()=>{
+    music.play().catch(()=>{console.log("Music blocked");});
+    playBtn.style.display = "none"; // hide button after click
+
+    const gameStart = document.getElementById("gameStart");
+
+    
+    setTimeout(()=>{
+        gameStart.style.visibility = "visible";
+        gameStart.style.opacity = 1;
+
+        
+        setTimeout(()=>{
+            gameStart.style.opacity = 0;
+            setTimeout(()=>gameStart.style.visibility = "hidden", 500); 
+        }, 6000); 
+    },); 
+});
+
+
+</script>
+</body>
+</html>
