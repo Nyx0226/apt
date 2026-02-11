@@ -1,0 +1,138 @@
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    height:100vh;
+    width:100vw;
+    overflow:hidden;
+    background:#ff2d8d;
+    position:relative;
+    font-family: 'Rock Salt', cursive;
+}
+
+/* 🎂 Title */
+.title{
+    font-size:55px;
+    letter-spacing:3px;
+    color:white;
+    text-shadow:0 0 15px white,0 0 30px #ff9ccf,0 0 50px #ff69b4;
+    text-align:center;
+    position:absolute;
+    top:30px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:10;
+}
+
+/* ⚡ Heart thunders */
+.bolt{
+    position:absolute;
+    width:20px;
+    height:30px;
+    animation:swayBolt ease-in-out infinite;
+    transform-origin:center center;
+}
+@keyframes swayBolt{
+    0%,100%{transform:translateX(0) rotate(-8deg);}
+    50%{transform:translateX(8px) rotate(8deg);}
+}
+
+.face{
+    width:400px;
+    z-index:2;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+
+/* 🍰 Cake */
+.cake{
+    width:200px;
+    z-index:2;
+    position:absolute;
+    top:calc(50% + 120px);
+    left:50%;
+    transform:translateX(-50%);
+}
+
+/* 🎉 Party poppers */
+.popper{
+    position:absolute;
+    font-size:40px;
+    z-index:5;
+    animation:popperBounce 2s ease-in-out infinite;
+}
+@keyframes popperBounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+/* 🎈 Floating confetti emojis */
+.confetti{
+    position:absolute;
+    font-size:24px;
+    z-index:1;
+    animation:fall linear infinite;
+}
+@keyframes fall{
+    0% {transform: translateY(-50px) rotate(0deg);}
+    100% {transform: translateY(110vh) rotate(360deg);}
+}
+
+/* 🎉 Decorations layout */
+.decor{
+    position:absolute;
+    z-index:3;
+    transform-origin:center center;
+}
+.decor img, .decor span{
+    display:block;
+    width:100%;
+    height:auto;
+}
+@keyframes sway{0%,100%{transform:translateX(0);}50%{transform:translateX(15px);}}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes floatAnim{0%{transform:translateY(0);}100%{transform:translateY(20px);}}
+
+
+
+#playButton {
+    position: fixed;           
+    top: 0;
+    left: 0;
+    width: 100vw;              
+    height: 100vh;            
+    background: white;     
+    color: #ff2d8d;       
+    font-size: 80px;           
+    display: flex;             
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 50;              
+    box-shadow: 0 0 20px white;
+    border-radius: 0;          
+    text-shadow: 
+        0 0 40px #ff69b4,   
+        0 0 60px #f470b2;
+    box-shadow: 0 0 20px white;
+}
+
+
+/* Extra decorations */
+#topLeft{
+    position:absolute;
+    top:10px;
+    left:10px;
+    width:250px;
+    z-index:15;
+}
+#bottomRight{
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    width:100px;
+    z-index:15;
+}
+
+
